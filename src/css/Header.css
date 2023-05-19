@@ -1,0 +1,14 @@
+.header__link{
+font-size: 25px;
+}
+.header__point{
+    color: #fff;
+    margin: 5px;
+}
+.name-point{
+    font-size: 25px;
+}
+.header__collapce{
+    justify-content: space-between;
+    padding: 0px 35px;
+}
