@@ -4,7 +4,6 @@ import { LinkContainer } from "react-router-bootstrap";
 import { aboutRoute, mainRoute } from "../utils/const";
 
 import avatar from '../assets/img/avatar-svgrepo-com.svg';
-import "bootstrap/dist/css/bootstrap.min.css";
 import "../css/Header.css";
 
 const Header = () => {
@@ -13,7 +12,7 @@ const Header = () => {
       <div className="header__inner">
         <Navbar bg="dark" variant="dark" expand="md">
           
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Navbar.Toggle aaria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav" className="header__collapce">
               <Nav className="mr-auto">
                 <LinkContainer to={mainRoute}>

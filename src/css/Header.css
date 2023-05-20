@@ -1,5 +1,5 @@
 .header__link{
-font-size: 25px;
+font-size: 25px !important;
 }
 .header__point{
     color: #fff;

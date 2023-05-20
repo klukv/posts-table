@@ -1,0 +1,61 @@
+.main {
+  display: flex;
+}
+.main__title {
+  margin: 15px;
+  text-align: center;
+}
+.post,
+.comment {
+  margin: 15px;
+}
+.title {
+  font-size: 18px;
+}
+.post__author {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.post__name {
+  text-align: center;
+}
+.post__point {
+  min-height: 85px;
+  display: flex !important;
+  align-items: center;
+}
+.post__header {
+  display: flex;
+}
+.post__title,
+comment__title {
+  max-width: 150px;
+  word-break: break-word;
+}
+.post__text,
+comment__text {
+  max-width: 500px;
+  word-break: break-word;
+}
+.comments {
+  display: none;
+}
+.comments__title{
+  margin: 15px 0px 30px 0px;
+  text-align: center;
+}
+.comment__point {
+  display: flex !important;
+  align-items: center;
+}
+.active {
+  display: block;
+}
+.avatar__image{
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+}
+.avatar__image:hover{
+  transform: scale(1.08);
+}
