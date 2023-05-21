@@ -7,9 +7,13 @@ import avatar from "../assets/img/avatar-svgrepo-com-black.svg";
 import "../css/Person.css";
 import { mainRoute } from "../utils/const";
 import { Comment, Post } from "../components";
+import { useAppSelector } from "../redux/hooks";
+import { TPost } from "../redux/actions/postAction";
 
 const Person: React.FC = () => {
   const [activeComments, setActiveComments] = React.useState<boolean>(false);
+
+  const posts:TPost[] = useAppSelector((state) => state.postReducer.posts);
 
   const handleActiveComments = (value: boolean) => {
     setActiveComments(value);
@@ -34,11 +38,12 @@ const Person: React.FC = () => {
       <div className="person__posts info-posts">
         <div className="person__posts-block">
           <h2 className="person__posts-title">Посты:</h2>
-          {[1, 2, 3, 4, 5].map((post) => (
+          {posts.map((post) => (
             <Post
-              key={post}
+              key={post.id}
               handleActiveComments={handleActiveComments}
               activeComments={activeComments}
+              {...post}
             />
           ))}
         </div>

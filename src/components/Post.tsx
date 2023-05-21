@@ -11,10 +11,19 @@ import "../css/Main.css";
 
 interface IPost {
   handleActiveComments: (value: boolean) => void;
+  id: number;
+  title: string;
+  body: string;
   activeComments: boolean;
 }
 
-const Post: React.FC<IPost> = ({ handleActiveComments, activeComments }) => {
+const Post: React.FC<IPost> = ({
+  handleActiveComments,
+  activeComments,
+  id,
+  title,
+  body,
+}) => {
   return (
     <>
       <ListGroup>
@@ -24,14 +33,14 @@ const Post: React.FC<IPost> = ({ handleActiveComments, activeComments }) => {
               <LinkContainer to={personRoute}>
                 <Image src={avatar} className="avatar__image" />
               </LinkContainer>
-              <div className="post__name">user</div>
+              <div className="post__name">user{id}</div>
             </div>
           </ListGroup.Item>
           <ListGroup.Item className="post__header post__point">
-            <h2 className="post__title title">Title_post</h2>
+            <h2 className="post__title title">{title}</h2>
           </ListGroup.Item>
           <ListGroup.Item className="post__point post__text">
-            texdsfgsdfgdfgdfhgdfhdfgjkdfnbjdfgnmbdfsdfdsfdsffsdfsdfnbdfojnbdfjnobt_post
+            {body}
           </ListGroup.Item>
           <ListGroup.Item className="post__point post__comments-btn">
             <Button
@@ -39,7 +48,7 @@ const Post: React.FC<IPost> = ({ handleActiveComments, activeComments }) => {
               className="post__button"
               onClick={() => handleActiveComments(!activeComments)}
             >
-              Comments
+              Комментарии
             </Button>
           </ListGroup.Item>
         </ListGroup>

@@ -27,6 +27,7 @@
 }
 .post__header {
   display: flex;
+  width: 200px;
 }
 .post__title,
 comment__title {

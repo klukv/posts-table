@@ -2,6 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 const rootElem = document.getElementById("root");
 if (rootElem) {
@@ -9,9 +11,9 @@ if (rootElem) {
   root.render(
     <BrowserRouter>
       <React.StrictMode>
-        {/* <Provider store={store}> */}
+        <Provider store={store}>
         <App />
-        {/* </Provider> */}
+        </Provider>
       </React.StrictMode>
     </BrowserRouter>
   );
