@@ -7,4 +7,4 @@ export const $request = axios.create({
 
 export const getPosts = () => $request.get("posts?_limit=10");
 
-export const getComments = () => $request.get("comments?_limit=5");
+export const getComments = (userId:number) => $request.get(`posts/${userId}/comments?_limit=8`);

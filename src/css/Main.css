@@ -35,28 +35,35 @@ comment__title {
   word-break: break-word;
 }
 .post__text,
-comment__text {
+.comment__text {
   max-width: 500px;
   word-break: break-word;
 }
 .comments {
   display: none;
 }
-.comments__title{
+.comments__title {
   margin: 15px 0px 30px 0px;
   text-align: center;
+}
+.comment__title{
+  font-size: 16px;
 }
 .comment__point {
   display: flex !important;
   align-items: center;
 }
+.comment__header {
+  width: 150px;
+  word-break: break-word;
+}
 .active {
   display: block;
 }
-.avatar__image{
+.avatar__image {
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
-.avatar__image:hover{
+.avatar__image:hover {
   transform: scale(1.08);
 }

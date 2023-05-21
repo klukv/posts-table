@@ -9,11 +9,13 @@ import { mainRoute } from "../utils/const";
 import { Comment, Post } from "../components";
 import { useAppSelector } from "../redux/hooks";
 import { TPost } from "../redux/actions/postAction";
+import { TComment } from "../redux/actions/commentAction";
 
 const Person: React.FC = () => {
   const [activeComments, setActiveComments] = React.useState<boolean>(false);
 
   const posts:TPost[] = useAppSelector((state) => state.postReducer.posts);
+  const comments:TComment[] = useAppSelector((state) => state.commentReducer.comments);
 
   const handleActiveComments = (value: boolean) => {
     setActiveComments(value);
@@ -53,8 +55,8 @@ const Person: React.FC = () => {
           }
         >
           <h2 className="person__comments-title">Комментарии:</h2>
-          {[1, 2, 3, 4, 5].map((comment) => (
-            <Comment key={comment} />
+          {comments && comments.map((comment) => (
+            <Comment key={comment.id} {...comment}/>
           ))}
         </div>
       </div>

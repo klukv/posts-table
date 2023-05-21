@@ -10,7 +10,7 @@ import avatar from "../assets/img/avatar-svgrepo-com-black.svg";
 import "../css/Main.css";
 
 interface IPost {
-  handleActiveComments: (value: boolean) => void;
+  handleActiveComments: (value: boolean, id: number) => void;
   id: number;
   title: string;
   body: string;
@@ -46,7 +46,7 @@ const Post: React.FC<IPost> = ({
             <Button
               variant="primary"
               className="post__button"
-              onClick={() => handleActiveComments(!activeComments)}
+              onClick={() => handleActiveComments(!activeComments, id)}
             >
               Комментарии
             </Button>

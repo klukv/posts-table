@@ -3,17 +3,19 @@ import React from "react";
 import { Comment, Post } from "../components";
 
 import "../css/Main.css";
-import {  useAppSelector } from "../redux/hooks";
+import {  useAppDispatch, useAppSelector } from "../redux/hooks";
 import { TPost } from "../redux/actions/postAction";
+import { TComment, setAsyncComments } from "../redux/actions/commentAction";
 
 const Main: React.FC = () => {
-
+  const dispatch = useAppDispatch();
   const [activeComments, setActiveComments] = React.useState<boolean>(false);
 
-  
   const posts:TPost[] = useAppSelector((state) => state.postReducer.posts);
+  const comments:TComment[] = useAppSelector((state) => state.commentReducer.comments);
 
-  const handleActiveComments = (value: boolean) => {
+  const handleActiveComments = (value: boolean, userId: number) => {
+    dispatch(setAsyncComments(userId));
     setActiveComments(value);
   };
 
@@ -32,8 +34,8 @@ const Main: React.FC = () => {
       </section>
       <section className={activeComments ? "comments active" : "comments"}>
         <h2 className="comments__title">Комментарии:</h2>
-        {[1, 2, 3, 4, 5].map((comment) => (
-          <Comment key={comment} />
+        {comments && comments.map((comment) => (
+          <Comment key={comment.id} {...comment}/>
         ))}
       </section>
     </main>
