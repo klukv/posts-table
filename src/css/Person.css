@@ -5,9 +5,11 @@
 }
 .person__comments {
   display: none;
+  flex: 0;
 }
-.active {
-  display: block;
+.person__comments__inner{
+  width: 650px;
+  text-align: center;
 }
 .person__card {
   margin: 15px;
@@ -24,4 +26,7 @@
 }
 .info-posts {
   display: flex;
+}
+.active{
+  display: block;
 }

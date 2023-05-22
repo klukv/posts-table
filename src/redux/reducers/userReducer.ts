@@ -16,7 +16,7 @@ const initialState: IStateUser = {
 
 const userReducer = (state = initialState, action: ActionUser) => {
   switch (action.type) {
-    case ActionType.SET_LOADED:
+    case ActionType.SET_LOADED_USER:
       return {
         ...state,
         isLoaded: action.payload,

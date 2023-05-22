@@ -6,13 +6,13 @@ export type TPost = {
 };
 
 export enum ActionType {
-  SET_LOADED = "SET_LOADED",
+    SET_LOADED_POST = "SET_LOADED_POST",
   SET_POSTS = "SET_POSTS",
   SET_ASYNC_POSTS = "SET_ASYNC_POSTS",
 }
 
 export interface ISetLoaded {
-  type: ActionType.SET_LOADED;
+  type: ActionType.SET_LOADED_POST;
   payload: boolean;
 }
 
@@ -28,7 +28,7 @@ export interface ISetAsyncPosts {
 export type ActionPost = ISetPosts | ISetLoaded | ISetAsyncPosts;
 
 export const setLoaded = (value: boolean): ISetLoaded => ({
-  type: ActionType.SET_LOADED,
+  type: ActionType.SET_LOADED_POST,
   payload: value,
 });
 

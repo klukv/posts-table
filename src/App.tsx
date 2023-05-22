@@ -6,15 +6,8 @@ import { Header } from "./components";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/normalize.css";
-import { useAppDispatch } from './redux/hooks';
-import { setAsyncPosts } from './redux/actions/postAction';
 
 const App = () => {
-  const dispatch = useAppDispatch();
-  
-  React.useEffect(() => {
-    dispatch(setAsyncPosts());
-  },[dispatch])
 
   return (
     <div>

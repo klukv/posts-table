@@ -41,6 +41,12 @@ comment__title {
 }
 .comments {
   display: none;
+  flex: 0;
+  text-align: center;
+}
+.comments__inner{
+  width: 650px;
+  text-align: center;
 }
 .comments__title {
   margin: 15px 0px 30px 0px;

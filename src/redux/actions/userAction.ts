@@ -5,13 +5,13 @@ export type TUser = {
 };
 
 export enum ActionType {
-  SET_LOADED = "SET_LOADED",
+    SET_LOADED_USER = "SET_LOADED_USER",
   SET_USER_INFO = "SET_USER_INFO",
   FETCH_USER_INFO = "FETCH_USER_INFO",
 }
 
 export interface ISetLoadedUser {
-  type: ActionType.SET_LOADED;
+  type: ActionType.SET_LOADED_USER;
   payload: boolean;
 }
 
@@ -28,7 +28,7 @@ export interface IFetchUser {
 export type ActionUser = ISetUser | ISetLoadedUser | IFetchUser;
 
 export const setLoadedUser = (value: boolean): ISetLoadedUser => ({
-  type: ActionType.SET_LOADED,
+  type: ActionType.SET_LOADED_USER,
   payload: value,
 });
 

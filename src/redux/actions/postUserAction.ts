@@ -1,13 +1,13 @@
 import { TPost } from "./postAction";
 
   export enum ActionType {
-    SET_LOADED = "SET_LOADED",
+    SET_LOADED_POSTS_USER = "SET_LOADED_POSTS_USER",
     SET_USER_POSTS = "SET_USER_POSTS",
     FETCH_USER_POSTS = "FETCH_USER_POSTS",
   }
   
   export interface ISetLoadedPostsUser {
-    type: ActionType.SET_LOADED;
+    type: ActionType.SET_LOADED_POSTS_USER;
     payload: boolean;
   }
   
@@ -24,7 +24,7 @@ import { TPost } from "./postAction";
   export type ActionPostsUser = ISetPostsUser | ISetLoadedPostsUser | IFetchUserPosts;
   
   export const setLoadedPostsUser = (value: boolean): ISetLoadedPostsUser => ({
-    type: ActionType.SET_LOADED,
+    type: ActionType.SET_LOADED_POSTS_USER,
     payload: value,
   });
   

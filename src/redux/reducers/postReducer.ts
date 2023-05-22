@@ -12,7 +12,7 @@ const initialState: IStatePost = {
 
 const postReducer = (state = initialState, action: ActionPost) => {
   switch (action.type) {
-    case ActionType.SET_LOADED:
+    case ActionType.SET_LOADED_POST:
       return {
         ...state,
         isLoaded: action.payload,

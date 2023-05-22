@@ -13,7 +13,7 @@ const initialState: IStatePostsUser = {
 
 const postUserReducer = (state = initialState, action: ActionPostsUser) => {
   switch (action.type) {
-    case ActionType.SET_LOADED:
+    case ActionType.SET_LOADED_POSTS_USER:
       return {
         ...state,
         isLoaded: action.payload,

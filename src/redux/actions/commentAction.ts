@@ -7,13 +7,13 @@ export type TComment = {
 };
 
 export enum ActionType {
-  SET_LOADED = "SET_LOADED",
+  SET_LOADED_COMMENT = "SET_LOADED_COMMENT",
   SET_COMMENTS = "SET_COMMENTS",
   SET_ASYNC_COMMENTS = "SET_ASYNC_COMMENTS",
 }
 
 export interface ISetLoaded {
-  type: ActionType.SET_LOADED;
+  type: ActionType.SET_LOADED_COMMENT;
   payload: boolean;
 }
 
@@ -29,8 +29,8 @@ export interface ISetAsyncComment {
 
 export type ActionComment = ISetComment | ISetLoaded | ISetAsyncComment;
 
-export const setLoaded = (value: boolean): ISetLoaded => ({
-  type: ActionType.SET_LOADED,
+export const setLoadedComment = (value: boolean): ISetLoaded => ({
+  type: ActionType.SET_LOADED_COMMENT,
   payload: value,
 });
 

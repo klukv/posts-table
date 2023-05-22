@@ -12,7 +12,7 @@ const initialState: IStateComment = {
 
 const commentReducer = (state = initialState, action: ActionComment) => {
   switch (action.type) {
-    case ActionType.SET_LOADED:
+    case ActionType.SET_LOADED_COMMENT:
       return {
         ...state,
         isLoaded: action.payload,
