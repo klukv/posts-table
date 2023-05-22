@@ -5,6 +5,7 @@ import { AboutPage, MainPage, PersonPage } from "./pages";
 import { Header } from "./components";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import "./css/Media.css";
 import "./css/normalize.css";
 
 const App = () => {

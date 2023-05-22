@@ -3,11 +3,10 @@ import React from "react";
 import { Image, Button } from "react-bootstrap";
 import ListGroup from "react-bootstrap/ListGroup";
 import { personRoute } from "../utils/const";
+import { useNavigate } from "react-router";
 
 import avatar from "../assets/img/avatar-svgrepo-com-black.svg";
-
 import "../css/Main.css";
-import { useNavigate } from "react-router";
 
 interface IPost {
   handleActiveComments: (value: boolean, id: number) => void;

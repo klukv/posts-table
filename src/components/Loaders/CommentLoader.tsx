@@ -1,7 +1,9 @@
 import ContentLoader from "react-content-loader"
+import '../../css/Media.css'
 
 const CommentLoader = () => (
     <ContentLoader 
+    className="commentLoader"
     speed={2}
     width={650}
     height={90}

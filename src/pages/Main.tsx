@@ -1,13 +1,16 @@
 import React from "react";
 
-import { Comment, Post } from "../components";
+import { Comment, CommentLoader, Post, PostLoader } from "../components";
+
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
+import { TPost, setAsyncPosts, setLoaded } from "../redux/actions/postAction";
+import {
+  TComment,
+  setAsyncComments,
+  setLoadedComment,
+} from "../redux/actions/commentAction";
 
 import "../css/Main.css";
-import { useAppDispatch, useAppSelector } from "../redux/hooks";
-import { TPost, setAsyncPosts } from "../redux/actions/postAction";
-import { TComment, setAsyncComments, setLoadedComment } from "../redux/actions/commentAction";
-import PostLoader from "../components/Loaders/PostLoader";
-import CommentLoader from "../components/Loaders/CommentLoader";
 
 const Main: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -16,6 +19,7 @@ const Main: React.FC = () => {
   const posts: TPost[] = useAppSelector((state) => state.postReducer.posts);
   const comments: TComment[] = useAppSelector((state) => state.commentReducer.comments);
   const isLoaded: boolean = useAppSelector((state) => state.commentReducer.isLoaded);
+  const isLoadedPosts: boolean = useAppSelector((state) => state.postReducer.isLoaded);
 
   const handleActiveComments = (value: boolean, userId: number) => {
     dispatch(setLoadedComment(false));
@@ -26,16 +30,17 @@ const Main: React.FC = () => {
   };
 
   React.useEffect(() => {
+    dispatch(setLoaded(false));
     setTimeout(() => {
       dispatch(setAsyncPosts());
     }, 500);
-  },[dispatch])
+  }, [dispatch]);
 
   return (
     <main className="main">
       <section className="posts">
         <h2 className="main__title">Все посты:</h2>
-        {posts.length !== 0
+        {isLoadedPosts
           ? posts.map((post) => (
               <Post
                 key={post.id}

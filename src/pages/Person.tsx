@@ -1,12 +1,11 @@
 import React from "react";
+import { useParams } from "react-router";
 
 import { Button, Card } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-import avatar from "../assets/img/avatar-svgrepo-com-black.svg";
 
-import "../css/Person.css";
 import { mainRoute } from "../utils/const";
-import { Comment, Post } from "../components";
+import { CardLoader, Comment, CommentLoader, Post, PostLoader } from "../components";
 import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { TPost } from "../redux/actions/postAction";
 import {
@@ -14,15 +13,15 @@ import {
   setAsyncComments,
   setLoadedComment,
 } from "../redux/actions/commentAction";
-import { useParams } from "react-router";
 import { TUser, fetchUser, setLoadedUser } from "../redux/actions/userAction";
 import {
   fetchPostsUser,
   setLoadedPostsUser,
 } from "../redux/actions/postUserAction";
-import CardLoader from "../components/Loaders/CardLoader";
-import PostLoader from "../components/Loaders/PostLoader";
-import CommentLoader from "../components/Loaders/CommentLoader";
+
+import avatar from "../assets/img/avatar-svgrepo-com-black.svg";
+import "../css/Person.css";
+
 
 const Person: React.FC = () => {
   const { id } = useParams();
@@ -33,18 +32,10 @@ const Person: React.FC = () => {
     (state) => state.commentReducer.comments
   );
   const userInfo: TUser = useAppSelector((state) => state.userReducer.user);
-  const postsUser: TPost[] = useAppSelector(
-    (state) => state.postsUserReducer.postsUser
-  );
-  const isLoadedPosts: boolean = useAppSelector(
-    (state) => state.postsUserReducer.isLoaded
-  );
-  const isLoadedComments: boolean = useAppSelector(
-    (state) => state.commentReducer.isLoaded
-  );
-  const isLoaded: boolean = useAppSelector(
-    (state) => state.userReducer.isLoaded
-  );
+  const postsUser: TPost[] = useAppSelector((state) => state.postsUserReducer.postsUser);
+  const isLoadedPosts: boolean = useAppSelector((state) => state.postsUserReducer.isLoaded);
+  const isLoadedComments: boolean = useAppSelector((state) => state.commentReducer.isLoaded);
+  const isLoaded: boolean = useAppSelector((state) => state.userReducer.isLoaded);
 
   const handleActiveComments = (value: boolean, userId: number) => {
     dispatch(setLoadedComment(false));

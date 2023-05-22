@@ -1,0 +1,12 @@
+.about {
+  display: flex;
+}
+.about__git,
+.link__movies {
+  color: #0d6efd;
+  cursor: pointer;
+}
+.about__info {
+  margin: 15px;
+  width: 100%;
+}

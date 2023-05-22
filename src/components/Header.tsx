@@ -16,10 +16,10 @@ const Header = () => {
             <Navbar.Collapse id="basic-navbar-nav" className="header__collapce">
               <Nav className="mr-auto">
                 <LinkContainer to={mainRoute}>
-                  <Nav.Link className="header__link">Main</Nav.Link>
+                  <Nav.Link className="header__link">Список постов</Nav.Link>
                 </LinkContainer>
                 <LinkContainer to={aboutRoute}>
-                  <Nav.Link className="header__link">About</Nav.Link>
+                  <Nav.Link className="header__link">Обо мне</Nav.Link>
                 </LinkContainer>
               </Nav>
               <Nav className="ml-auto">

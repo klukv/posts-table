@@ -1,0 +1,32 @@
+@media (max-width: 1480px){
+    .main{
+        display: block;
+    }
+    .list-group{
+        position: relative;
+    }
+    .comments{
+        position: absolute;
+        top: 260px;
+        left: 150px;
+        background-color: #fff;
+        border: 1px solid #e9ecef;
+        border-radius: 4px;
+    }
+    .comments__inner{
+        max-width: 550px;
+    }
+    .contentLoader{
+        width: 550px;
+        
+    }
+}
+@media (max-width: 850px){
+    .comments__inner{
+        max-width: 350px;
+    }
+    .contentLoader{
+        width: 350px;
+
+    }
+}
