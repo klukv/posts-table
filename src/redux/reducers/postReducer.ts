@@ -1,17 +1,16 @@
-import { ActionType, TPost } from "../actions/postAction";
-import { AnyAction } from "redux";
+import { ActionType, TPost, ActionPost } from "../actions/postAction";
 
-interface IState {
+export interface IStatePost {
   isLoaded: boolean;
   posts: TPost[];
 }
 
-const initialState: IState = {
+const initialState: IStatePost = {
   isLoaded: false,
   posts: [],
 };
 
-const postReducer = (state = initialState, action: AnyAction) => {
+const postReducer = (state = initialState, action: ActionPost) => {
   switch (action.type) {
     case ActionType.SET_LOADED:
       return {

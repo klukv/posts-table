@@ -7,28 +7,41 @@ import avatar from "../assets/img/avatar-svgrepo-com-black.svg";
 import "../css/Person.css";
 import { mainRoute } from "../utils/const";
 import { Comment, Post } from "../components";
-import { useAppSelector } from "../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { TPost } from "../redux/actions/postAction";
-import { TComment } from "../redux/actions/commentAction";
+import { TComment, setAsyncComments } from "../redux/actions/commentAction";
+import { useParams } from "react-router";
+import { TUser, fetchUser } from "../redux/actions/userAction";
+import { fetchPostsUser } from "../redux/actions/postUserAction";
 
 const Person: React.FC = () => {
+  const { id } = useParams();
+  const dispatch = useAppDispatch();
   const [activeComments, setActiveComments] = React.useState<boolean>(false);
 
-  const posts:TPost[] = useAppSelector((state) => state.postReducer.posts);
   const comments:TComment[] = useAppSelector((state) => state.commentReducer.comments);
+  const userInfo:TUser = useAppSelector(state => state.userReducer.user);
+  const postsUser:TPost[] = useAppSelector(state => state.postsUserReducer.postsUser);
 
-  const handleActiveComments = (value: boolean) => {
+  const handleActiveComments = (value: boolean, userId: number) => {
+    dispatch(setAsyncComments(userId));
     setActiveComments(value);
   };
+
+  React.useEffect(() => {
+    dispatch(fetchUser(Number(id)));
+    dispatch(fetchPostsUser(Number(id)));
+  },[dispatch, id]);
+  
   return (
     <section className="person">
       <div className="person__info">
         <Card style={{ width: "18rem" }} className="person__card">
           <Card.Img variant="top" src={avatar} />
-          <h1 className="person__card-name">user</h1>
+          <h1 className="person__card-name">{userInfo.username}</h1>
           <Card.Body>
             <Card.Title>Обо мне:</Card.Title>
-            <Card.Text>Я классный человек!</Card.Text>
+            <Card.Text>{userInfo.website}</Card.Text>
             <LinkContainer to={mainRoute}>
               <Button variant="primary" className="person__card-button">
                 На главную
@@ -40,7 +53,7 @@ const Person: React.FC = () => {
       <div className="person__posts info-posts">
         <div className="person__posts-block">
           <h2 className="person__posts-title">Посты:</h2>
-          {posts.map((post) => (
+          {postsUser && postsUser.map((post) => (
             <Post
               key={post.id}
               handleActiveComments={handleActiveComments}

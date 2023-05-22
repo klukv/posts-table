@@ -1,32 +1,30 @@
-import { ActionType, TComment } from "../actions/commentAction";
-import { AnyAction } from 'redux'
+import { ActionComment, ActionType, TComment } from "../actions/commentAction";
 
-interface IState  {
-    comments : TComment[],
-    isLoaded: boolean
+export interface IStateComment {
+  comments: TComment[];
+  isLoaded: boolean;
 }
 
-const initialState:IState = {
-    comments: [],
-    isLoaded: false,
-  };
-  
-const commentReducer = (state = initialState, action:AnyAction) => {
-    switch (action.type) {
+const initialState: IStateComment = {
+  comments: [],
+  isLoaded: false,
+};
 
-      case ActionType.SET_LOADED:
-        return {
-          ...state,
-          isLoaded: action.payload,
-        };
-        case ActionType.SET_COMMENTS:
-            return {
-              ...state,
-              comments: action.payload,
-            };
-  
-      default:
-        return state;
-    }
-  };
-  export default commentReducer;
+const commentReducer = (state = initialState, action: ActionComment) => {
+  switch (action.type) {
+    case ActionType.SET_LOADED:
+      return {
+        ...state,
+        isLoaded: action.payload,
+      };
+    case ActionType.SET_COMMENTS:
+      return {
+        ...state,
+        comments: action.payload,
+      };
+
+    default:
+      return state;
+  }
+};
+export default commentReducer;

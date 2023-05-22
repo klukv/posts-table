@@ -1,13 +1,13 @@
 import React from "react";
 
 import { Image, Button } from "react-bootstrap";
-import { LinkContainer } from "react-router-bootstrap";
 import ListGroup from "react-bootstrap/ListGroup";
 import { personRoute } from "../utils/const";
 
 import avatar from "../assets/img/avatar-svgrepo-com-black.svg";
 
 import "../css/Main.css";
+import { useNavigate } from "react-router";
 
 interface IPost {
   handleActiveComments: (value: boolean, id: number) => void;
@@ -24,16 +24,20 @@ const Post: React.FC<IPost> = ({
   title,
   body,
 }) => {
+
+  const navigate = useNavigate();
+
+  const navigateToPerson = (userId: number) => {
+    navigate(personRoute + '/' + userId);
+  }
+
   return (
     <>
       <ListGroup>
         <ListGroup horizontal className="post">
           <ListGroup.Item className="post__point post__author">
-            <div className="post__image">
-              <LinkContainer to={personRoute}>
+            <div className="post__image" onClick={() => navigateToPerson(id)}>
                 <Image src={avatar} className="avatar__image" />
-              </LinkContainer>
-              <div className="post__name">user{id}</div>
             </div>
           </ListGroup.Item>
           <ListGroup.Item className="post__header post__point">

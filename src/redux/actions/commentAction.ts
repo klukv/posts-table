@@ -1,5 +1,3 @@
-import { Action } from "redux";
-
 export type TComment = {
   postId: number;
   id: number;
@@ -14,26 +12,33 @@ export enum ActionType {
   SET_ASYNC_COMMENTS = "SET_ASYNC_COMMENTS",
 }
 
-export interface ISetLoaded extends Action<ActionType.SET_LOADED> {
+export interface ISetLoaded {
+  type: ActionType.SET_LOADED;
   payload: boolean;
 }
 
-export interface ISetComment extends Action<ActionType.SET_COMMENTS> {
-  payload: TComment;
+export interface ISetComment {
+  type: ActionType.SET_COMMENTS;
+  payload: TComment[];
 }
 
-export type CounterAction = ISetComment | ISetLoaded;
+export interface ISetAsyncComment {
+  type: ActionType.SET_ASYNC_COMMENTS;
+  payload: number;
+}
+
+export type ActionComment = ISetComment | ISetLoaded | ISetAsyncComment;
 
 export const setLoaded = (value: boolean): ISetLoaded => ({
   type: ActionType.SET_LOADED,
   payload: value,
 });
 
-export const setComment = (Comment: TComment): ISetComment => ({
+export const setComment = (Comment: TComment[]): ISetComment => ({
   type: ActionType.SET_COMMENTS,
   payload: Comment,
 });
-export const setAsyncComments = (userId: number) => ({
+export const setAsyncComments = (userId: number): ISetAsyncComment => ({
   type: ActionType.SET_ASYNC_COMMENTS,
   payload: userId,
 });

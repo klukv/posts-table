@@ -14,7 +14,7 @@ const App = () => {
   
   React.useEffect(() => {
     dispatch(setAsyncPosts());
-  },[])
+  },[dispatch])
 
   return (
     <div>
@@ -22,7 +22,7 @@ const App = () => {
         <Routes>
           <Route path={mainRoute} element={<MainPage />} />
           <Route path={aboutRoute} element={<AboutPage />} />
-          <Route path={personRoute} element={<PersonPage />} />
+          <Route path={personRoute + '/:id'} element={<PersonPage />} />
         </Routes>
     </div>
   );
